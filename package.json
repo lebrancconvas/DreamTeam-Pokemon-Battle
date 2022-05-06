@@ -1,0 +1,14 @@
+{
+    "name": "pokemondt",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/lebrancconvas/DreamTeam-Pokemon-Battle.git",
+    "author": "lebrancconvas <lebrancconvas@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node dist/app.js",
+        "dev": "nodemon dist/app.js",
+        "build": "tsc",
+        "test": "mocha test/dist/app.js"
+    }
+}
