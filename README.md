@@ -10,6 +10,10 @@ Generate Perfect Pokemon Team for Pokemon Battle by using Pokemon's Stats that a
 
 - Typescript
 
-### API
+### Data
 
 - PokeAPI
+
+### Server
+
+- Express
