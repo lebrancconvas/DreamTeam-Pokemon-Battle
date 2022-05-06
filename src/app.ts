@@ -1,7 +1,5 @@
 import axios, { AxiosResponse } from "axios";
 
-let name, hp, atk, def, spatk, spdef, speed;
-
 const PokemonAPI = async(pokemonname: string) => {
 	const response: AxiosResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonname.toLowerCase()}`);
 	const data = await response.data;
@@ -10,7 +8,7 @@ const PokemonAPI = async(pokemonname: string) => {
 
 PokemonAPI("bulbasaur")
 	.then(data => {
-		[name, hp, atk, def, spatk, spdef, speed] = data;
+		const [name, hp, atk, def, spatk, spdef, speed] = data;
 		const PokemonStat = {
 			name: name,
 			hp: hp,
