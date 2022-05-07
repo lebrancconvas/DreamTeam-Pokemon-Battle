@@ -1,5 +1,17 @@
 import axios, { AxiosResponse } from "axios";
 
+interface Stat {
+	name: string;
+	hp: number;
+	atk: number;
+	def: number;
+	spatk: number;
+	spdef: number;
+	speed: number;
+}
+
+let PokemonDataList: Stat[] = [];
+
 const PokemonAPI = async(pokemonname: string) => {
 	const response: AxiosResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonname.toLowerCase()}`);
 	const data = await response.data;
@@ -9,7 +21,7 @@ const PokemonAPI = async(pokemonname: string) => {
 PokemonAPI("bulbasaur")
 	.then(data => {
 		const [name, hp, atk, def, spatk, spdef, speed] = data;
-		const PokemonStat = {
+		const PokemonStat: Stat = {
 			name: name,
 			hp: hp,
 			atk: atk,
@@ -18,7 +30,12 @@ PokemonAPI("bulbasaur")
 			spdef: spdef,
 			speed: speed
 		}
-		console.log(PokemonStat);
+		if(PokemonDataList.length > 5) {
+			PokemonDataList.push(PokemonStat);
+			console.log(PokemonDataList);
+		} else {
+			console.log("PokemonDataList is full");
+		}
 	})
 	.catch(err => {
 		console.error(err);
